@@ -7,14 +7,17 @@
 	"features": {
 		"ghcr.io/devcontainers/features/aws-cli:1": {}
 	},
+	
 	"customizations": {
 		"vscode": {
 			"extensions": [
 				"GitHub.copilot-chat",
-				"GitHub.copilot"
+				"GitHub.copilot",
+				"ms-python.vscode-pylance",
+				"ms-python.python"
 			]
 		}
-	}
+	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -23,7 +26,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "pip3 install --user -r requirements.txt",
+	"postCreateCommand": "virtualenv ~/.venv && echo 'source ~/.venv/bin/activate' >> ~/.bashrc && source ~/.bashrc && make install"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
