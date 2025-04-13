@@ -14,7 +14,8 @@
 				"GitHub.copilot-chat",
 				"GitHub.copilot",
 				"ms-python.vscode-pylance",
-				"ms-python.python"
+				"ms-python.python",
+				"ms-vscode.makefile-tools"
 			]
 		}
 	},
