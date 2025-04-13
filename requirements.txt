@@ -1,0 +1,6 @@
+openai
+click
+pylint
+pytest
+ipython
+black

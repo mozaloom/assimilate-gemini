@@ -1,27 +1,40 @@
 #!/usr/bin/env python
 # USE THE GEMINI_KEY FROM THE CODESPACE SECRETS
-from google import genai
+
+from openai import OpenAI
 import os
 import click
 
 
-def ask_model(model, query):
-    """Ask the model a question and print the response."""
-       
-        client = genai.Client(api_key="$GEMINI_KEY")
-        response = client.models.generate_content(
-            model=model,
-            contents=query,
-        )
-        print(f"Response: {response.text}")
+def ask_model(query):
+    """Function to ask the model a question."""
+    client = OpenAI(
+        api_key=os.getenv("GEMINI_KEY"),
+        base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
+    )
+
+    response = client.chat.completions.create(
+        model="gemini-2.0-flash",
+        n=1,
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": query},
+        ],
+    )
+
+    # Access the content attribute directly
+    print(response.choices[0].message.content)
 
 
 @click.command()
-@click.option('--model', default='gemini', help='The model to use for the query.')
-@click.option('--query', prompt='Enter your question', help='The question to ask the model.')
-def main(model, query):
+@click.option(
+    "--query", prompt="Enter your question", help="The question to ask the model."
+)
+def main(query):
     """Main function to run the CLI."""
-    ask_model(model, query)
+    # Ensure the query is passed to ask_model
+    ask_model(query)
 
-if __name__ == '__main__':
-    main()
+
+if __name__ == "__main__":
+    main(None)
