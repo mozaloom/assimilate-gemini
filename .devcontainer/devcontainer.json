@@ -15,5 +15,5 @@
 			]
 		}
 	},
-	"postCreateCommand": "virtualenv ~/.venv && echo 'source ~/.venv/bin/activate' >> ~/.bashrc && source ~/.bashrc && make install"
+	"postCreateCommand": "virtualenv ~/.venv && echo 'source ~/.venv/bin/activate' >> ~/.bashrc && make install"
 }
