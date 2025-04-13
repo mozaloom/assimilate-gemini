@@ -1,3 +1,4 @@
+[![Python application test with Github Actions using devcontainers](https://github.com/mozaloom/assimilate-gemini/actions/workflows/main.yml/badge.svg)](https://github.com/mozaloom/assimilate-gemini/actions/workflows/main.yml)
 # Assimilate Gemini API
 
 Assimilate Gemini is a Python-based project that leverages Gemini API and OpenAI libraries to provide intelligent solutions for question answering and code generation. The repository includes both CLI and web-based applications for interacting with the Gemini API.
